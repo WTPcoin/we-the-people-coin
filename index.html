@@ -230,5 +230,45 @@
   <footer class="muted">
     We The People Coin (WTP) · Independent development project
   </footer>
+<section id="wtp-live-stats" style="max-width:800px;margin:30px auto;padding:20px;border:1px solid #444;border-radius:12px;background:#111;color:#fff;font-family:Arial,sans-serif;">
+  <h2>We The People Coin — Live Blockchain Statistics</h2>
+  <p id="wtp-status">Connecting to WTP Coin API...</p>
+  <p>Blocks: <strong id="wtp-block-count">—</strong></p>
+  <p>Latest block: <strong id="wtp-latest-block">—</strong></p>
+  <p>Latest block hash: <strong id="wtp-latest-hash" style="overflow-wrap:anywhere;">—</strong></p>
+  <p>Total mining rewards: <strong id="wtp-total-rewards">—</strong></p>
+  <p style="font-size:12px;color:#bbb;">Statistics refresh every 30 seconds.</p>
+</section>
+
+<script>
+(async function updateWTPStats() {
+  const apiURL = "https://wtp-coin-api.onrender.com/api/status";
+
+  async function refresh() {
+    const status = document.getElementById("wtp-status");
+
+    try {
+      const response = await fetch(apiURL, { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+
+      const data = await response.json();
+
+      document.getElementById("wtp-block-count").textContent = data.block_count ?? "—";
+      document.getElementById("wtp-latest-block").textContent = data.latest_block ?? "—";
+      document.getElementById("wtp-latest-hash").textContent = data.latest_hash ?? "—";
+      document.getElementById("wtp-total-rewards").textContent = data.total_mining_rewards ?? "—";
+
+      status.textContent = data.connected
+        ? "Connected — statistics received"
+        : "API online — waiting for computer statistics";
+    } catch (error) {
+      status.textContent = "Unable to load statistics. Please try again shortly.";
+    }
+  }
+
+  await refresh();
+  setInterval(refresh, 30000);
+})();
+</script>
 </body>
 </html>
