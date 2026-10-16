@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="We The People Coin (WTP) — an independent cryptocurrency development project building mining software, blockchain tools, and a mobile-friendly wallet.">
+  <title>We The People Coin | WTP</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101827;
+      --panel: #192538;
+      --text: #f4f7fb;
+      --muted: #aab8cb;
+      --blue: #5ba7ff;
+      --border: #30415a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand { font-weight: 800; letter-spacing: .3px; }
+
+    nav { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    a { color: var(--blue); }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: .94rem;
+    }
+
+    main {
+      width: min(960px, 100%);
+      margin: auto;
+      padding: 28px 18px 60px;
+    }
+
+    .hero {
+      padding: 38px 0 28px;
+      text-align: center;
+    }
+
+    .coin {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 18px;
+      border: 3px solid #d9e6f5;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #213d62;
+      color: white;
+      font-size: 1.65rem;
+      font-weight: 900;
+    }
+
+    h1 { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.12; margin: 0 0 16px; }
+    h2 { line-height: 1.25; }
+    .muted { color: var(--muted); }
+    .hero p { max-width: 650px; margin: 12px auto; }
+
+    .notice {
+      margin: 22px auto;
+      padding: 14px 16px;
+      max-width: 720px;
+      border: 1px solid #8c7139;
+      border-radius: 12px;
+      background: #302819;
+      color: #ffdfa0;
+      text-align: left;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .card {
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    .card h2 { margin-top: 0; }
+
+    .button {
+      display: inline-block;
+      padding: 11px 17px;
+      margin: 8px 5px;
+      background: #2366b2;
+      border-radius: 10px;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    .wallet-number { font-size: 1.8rem; font-weight: 800; }
+    footer { border-top: 1px solid var(--border); padding: 22px 12px; text-align: center; }
+    section { scroll-margin-top: 18px; }
+
+    @media (max-width: 480px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; }
+      main { padding-top: 16px; }
+      .hero { padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">WTP | We The People Coin</div>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#wallet">Wallet</a>
+      <a href="#project">Project</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="coin" aria-label="WTP coin emblem">WTP</div>
+      <h1>We The People Coin</h1>
+      <p class="muted">
+        An independent cryptocurrency development project focused on
+        mining software, blockchain tools, and accessible wallet technology.
+      </p>
+      <a class="button" href="#wallet">Explore Wallet Preview</a>
+      <a class="button secondary" href="#project">Project Details</a>
+      <div class="notice">
+        <strong>Development status:</strong> WTP is under development.
+        This website is an informational prototype. It does not yet provide
+        a live public blockchain, real transaction processing, or a
+        public exchange. Do not send funds to this site.
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About WTP Coin</h2>
+      <p class="muted">
+        We The People Coin is a developing cryptocurrency project with
+        its own mining program and blockchain prototype. The goal is to
+        make project information and wallet tools accessible on computers
+        and phones.
+      </p>
+    </section>
+
+    <section id="wallet">
+      <h2>WTP Wallet Preview</h2>
+      <div class="card">
+        <p class="muted">Wallet interface demonstration</p>
+        <div class="wallet-number">WTP</div>
+        <p>Balance: <strong>Not connected</strong></p>
+        <p class="muted">
+          A live balance, wallet creation, and send/receive functions
+          will require a secure wallet and a public blockchain service.
+        </p>
+        <button class="button" type="button"
+          onclick="alert('The WTP wallet is still in development. No transaction was sent.')">
+          Wallet status
+        </button>
+      </div>
+    </section>
+
+    <section id="project">
+      <h2>Project Information</h2>
+      <div class="grid">
+        <article class="card">
+          <h2>Mining</h2>
+          <p class="muted">
+            WTP has a local mining prototype. Public mining participation
+            and network-wide validation are not yet available.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Blockchain</h2>
+          <p class="muted">
+            The existing blockchain is under development. A public,
+            independently verifiable network remains a future milestone.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Mobile Access</h2>
+          <p class="muted">
+            This website is designed to fit phone screens. A secure,
+            installable mobile wallet is a separate development step.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Transparency</h2>
+      <p class="muted">
+        WTP does not currently claim a market price, exchange listing,
+        guaranteed earnings, or investment return. Project status will
+        be updated as working features become available.
+      </p>
+    </section>
+  </main>
+
+  <footer class="muted">
+    We The People Coin (WTP) · Independent development project
+  </footer>
+</body>
+</html>
